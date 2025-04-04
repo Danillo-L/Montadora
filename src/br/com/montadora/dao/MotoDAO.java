@@ -23,7 +23,7 @@ public class MotoDAO {
 	}
 	
 	public String inserir(Moto moto) {
-		String sql = "insert into moto(montadora, nomecarro, quantidadeadesivos) values (?,?,?)";
+		String sql = "insert into moto(montadora, nomemoto, quantidadeadesivos) values (?,?,?)";
 		try {
 			PreparedStatement ps = getCon().prepareStatement(sql);
 			ps.setString(1, moto.getMontadora());
@@ -43,7 +43,7 @@ public class MotoDAO {
 			String sql = "delete from moto where montadora = ?";
 			try {
 				PreparedStatement ps = getCon().prepareStatement(sql);
-				ps.setString(1,  moto.getNomeCarro());
+				ps.setString(1,  moto.getMontadora());
 				if (ps.executeUpdate() > 0) {
 					return "Deletado com sucesso";
 				} else {

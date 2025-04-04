@@ -43,7 +43,7 @@ public class CarroDAO {
 			String sql = "delete from carro where montadora = ?";
 			try {
 				PreparedStatement ps = getCon().prepareStatement(sql);
-				ps.setString(1,  carro.getNomeCarro());
+				ps.setString(1,  carro.getMontadora());
 				if (ps.executeUpdate() > 0) {
 					return "Deletado com sucesso";
 				} else {
