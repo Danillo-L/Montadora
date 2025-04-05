@@ -6,18 +6,18 @@ import br.com.montadora.conexao.Conexao;
 import br.com.montadora.dao.CarroDAO;
 import br.com.montadora.model.Carro;
 
-public class CarroDeletar {
-
+public class CarroAlterar {
 	public static void main(String[] args) {
-
 		Connection con = Conexao.abrirConexao();
-
+			
 		Carro carro = new Carro();
-		CarroDAO carrodao = new CarroDAO(con);
-
-		carro.setMontadora("Fiat");
-		System.out.println(carrodao.deletar(carro));
-
+		CarroDAO carroDAO = new CarroDAO(con);		
+		
+		carro.setNomeCarro("Urus");
+		carro.setMontadora("Peugeot");
+		carro.setQuantidadePortas(2);		
+		System.out.println(carroDAO.alterar(carro));
+		
 		Conexao.fecharConexao(con);
 	}
 

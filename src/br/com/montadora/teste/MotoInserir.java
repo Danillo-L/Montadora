@@ -12,12 +12,12 @@ public class MotoInserir {
 		Connection con = Conexao.abrirConexao();
 
 		Moto moto = new Moto();
-		MotoDAO motodao = new MotoDAO(con);
+		MotoDAO motoDAO = new MotoDAO(con);
 
-		moto.setMontadora("jonnathan");
-		moto.setNomeCarro("mobilete");
-		moto.setQuantidadeAdesivos(5);
-		System.out.println(motodao.inserir(moto));
+		moto.setMontadora("Hyundai");
+		moto.setNomeCarro("XJ6");
+		moto.setQuantidadeAdesivos(25);
+		System.out.println(motoDAO.inserir(moto));
 
 		Conexao.fecharConexao(con);
 	}

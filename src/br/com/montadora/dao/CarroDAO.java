@@ -23,7 +23,7 @@ public class CarroDAO {
 	
 
 	public String inserir(Carro carro) {
-		String sql = "insert into carro(montadora, nomecarro, quantidadeportas) values (?,?,?)";
+		String sql = "insert into carro(montadora, nome_carro, quantidade_portas) values (?,?,?)";
 		try {
 			PreparedStatement ps = getCon().prepareStatement(sql);
 			ps.setString(1,  carro.getMontadora());
@@ -55,7 +55,7 @@ public class CarroDAO {
 		}
 		
 		public String deletarWhereNome(Carro carro) {
-			String sql = "delete from carro where nomeCarro = ?";
+			String sql = "delete from carro where nome_carro = ?";
 			try {
 				PreparedStatement ps = getCon().prepareStatement(sql);
 				ps.setString(1,  carro.getNomeCarro());
@@ -68,7 +68,6 @@ public class CarroDAO {
 				return e.getMessage();
 			}
 		}
-		
 		
 		public String deletarSemWhere() {
 			String sql = "delete from carro";
@@ -83,6 +82,24 @@ public class CarroDAO {
 				return e.getMessage();
 			}
 		}
+		
+		public String alterar(Carro carro) {
+			String sql = "update carro set montadora = ?, quantidade_portas = ? where nome_carro = ?";
+			try {
+				PreparedStatement ps = getCon().prepareStatement(sql);
+				ps.setString(1,  carro.getMontadora());
+				ps.setDouble(2,  carro.getQuantidadePortas());
+				ps.setString(3,  carro.getNomeCarro());
+				if (ps.executeUpdate() > 0) {
+					return "Alterado com sucesso";
+				} else {
+					return "Erro ao alterar";
+				}
+			} catch (SQLException e) {
+				return e.getMessage();
+			}
+		}
+		
 	}
 
 

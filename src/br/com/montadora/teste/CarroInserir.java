@@ -15,9 +15,9 @@ public class CarroInserir {
 		Carro carro = new Carro();
 		CarroDAO carrodao = new CarroDAO(con);
 
-		carro.setMontadora("jonnathan");
-		carro.setNomeCarro("Palio");
-		carro.setQuantidadePortas(4);
+		carro.setMontadora("Fiat");
+		carro.setNomeCarro("Urus");
+		carro.setQuantidadePortas(6);
 		System.out.println(carrodao.inserir(carro));
 
 		Conexao.fecharConexao(con);

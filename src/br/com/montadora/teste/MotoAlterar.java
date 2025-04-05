@@ -6,18 +6,18 @@ import br.com.montadora.conexao.Conexao;
 import br.com.montadora.dao.MotoDAO;
 import br.com.montadora.model.Moto;
 
-public class MotoDeletar {
+public class MotoAlterar {
 	public static void main(String[] args) {
-
+		
 		Connection con = Conexao.abrirConexao();
-
 		Moto moto = new Moto();
-		MotoDAO motodao = new MotoDAO(con);
-
+		MotoDAO motoDAO = new MotoDAO(con);
+		
+		moto.setNomeCarro("XJ6");
 		moto.setMontadora("Yakuza");
-		System.out.println(motodao.deletar(moto));
-
+		moto.setQuantidadeAdesivos(20);
+		System.out.println(motoDAO.alterar(moto));
+		
 		Conexao.fecharConexao(con);
 	}
-
 }
